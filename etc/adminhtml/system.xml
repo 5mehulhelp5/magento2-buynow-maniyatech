@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * ManiyaTech
+ *
+ * @author        Milan Maniya
+ * @package       ManiyaTech_BuyNow
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="buynow" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Buy Now</label>
+            <tab>maniyatech</tab>
+            <resource>ManiyaTech_BuyNow::config_buynow</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Settings</label>
+                <field id="enabled" translate="Enable Module" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable Module</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="enable_list" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable On List Page</label>
+                    <depends><field id="enabled">1</field></depends>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="enable_view" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable On View Page</label>
+                    <depends><field id="enabled">1</field></depends>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="enable_search" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable On Search Page</label>
+                    <depends><field id="enabled">1</field></depends>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="enable_advanced_search" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable On Advanced Search Page</label>
+                    <depends><field id="enabled">1</field></depends>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="button_title" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Button Title</label>
+                    <depends><field id="enabled">1</field></depends>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="keep_cart_products" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Keep Cart's Products</label>
+                    <depends><field id="enabled">1</field></depends>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Keep other item(s) in the cart on buy now.</comment>
+                </field>
+                <field id="custom_buynow_button_code" type="textarea" translate="label" sortOrder="70" showInDefault="1" showInWebsite="1" canRestore="1">
+                    <frontend_model>ManiyaTech\BuyNow\Block\Adminhtml\System\Config\Field\Disable</frontend_model>
+                    <label>Custom Buy Now Button Code</label>
+                    <depends><field id="enabled">1</field></depends>
+                    <comment><![CDATA[Paste this code into your custom product listing template file wherever you want to display the "Buy Now" button. Replace <b>$_item</b> with the current product object. This code creates a new form for the buy now button, so ensure that you do not insert this code into any other form.]]></comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
+

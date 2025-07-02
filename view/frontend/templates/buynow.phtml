@@ -1,0 +1,33 @@
+<?php
+/**
+ * ManiyaTech
+ *
+ * @author        Milan Maniya
+ * @package       ManiyaTech_BuyNow
+ */
+
+/** @var \ManiyaTech\BuyNow\Block\Product\ListProduct $block */
+$product = $block->getProduct();
+$buttonTitle = $block->getButtonTitle() ?: 'Buy Now';
+?>
+<?php if ($product->isSaleable()): ?>
+    <?php $postParams = $block->getAddToCartPostParams($product); ?>
+    <div class="maniyatech-buynow">
+        <form action="<?= $escaper->escapeUrl($postParams['action']); ?>"
+              id="product_addtocart_form_<?= /* @noEscape */ $postParams['data']['product']; ?>"
+              method="post">
+            <input type="hidden"
+                   name="product"
+                   value="<?= /* @noEscape */ $postParams['data']['product']; ?>">
+            <input type="hidden"
+                   name="uenc"
+                   value="<?= /* @noEscape */ $postParams['data']['uenc']; ?>">
+            <?= $block->getBlockHtml('formkey') ?>
+            <button type="submit"
+                    title="<?= $escaper->escapeHtml(__($buttonTitle)) ?>"
+                    class="action tocart primary maniyatech-buynow-btn">
+                <span><?= $escaper->escapeHtml(__($buttonTitle)) ?></span>
+            </button>
+        </form>
+    </div>
+<?php endif; ?>

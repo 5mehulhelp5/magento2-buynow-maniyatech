@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * ManiyaTech
+ *
+ * @author        Milan Maniya
+ * @package       ManiyaTech_BuyNow
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <buynow>
+            <general>
+                <enabled>1</enabled>
+                <enable_list>1</enable_list>
+                <enable_view>1</enable_view>
+                <enable_search>1</enable_search>
+                <enable_advanced_search>1</enable_advanced_search>
+                <button_title>Buy Now</button_title>
+                <keep_cart_products>0</keep_cart_products>
+                <custom_buynow_button_code><![CDATA[$buyNowBtnHtml = $this->getLayout()
+    ->createBlock(\ManiyaTech\BuyNow\Block\Product\ListProduct::class)
+    ->setProduct($_item)
+    ->setButtonTitle('Buy Now')
+    ->setTemplate('ManiyaTech_BuyNow::buynow.phtml')
+    ->toHtml();
+echo $buyNowBtnHtml;]]>
+                </custom_buynow_button_code>
+            </general>
+        </buynow>
+    </default>
+</config>

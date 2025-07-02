@@ -1,0 +1,26 @@
+<?php
+/**
+ * ManiyaTech
+ *
+ * @author        Milan Maniya
+ * @package       ManiyaTech_BuyNow
+ */
+
+/**
+ * @var \Magento\Catalog\Block\Product\View $block
+ * @var \ManiyaTech\BuyNow\ViewModel\BuyNow $viewModel
+ */
+$viewModel = $block->getViewModel();
+if (!$viewModel->isEnabled()) {
+    return;
+}
+$buttonTitle = $viewModel->getButtonTitle();
+?>
+<div class="maniyatech-buynow">
+    <button type="submit"
+            title="<?= $escaper->escapeHtml(__($buttonTitle)) ?>"
+            class="action primary maniyatech-buy-now-btn"
+            data-mage-init='{"ManiyaTech_BuyNow/js/buy-now-view": {}}'>
+        <span><?= $escaper->escapeHtml(__($buttonTitle)) ?></span>
+    </button>
+</div>

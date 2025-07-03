@@ -10,7 +10,7 @@
 
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-    	<add id="ManiyaTech_BuyNow::main" title="Buy Now" translate="Buy Now" module="ManiyaTech_BuyNow" parent="ManiyaTech_Core::core" sortOrder="20" resource="ManiyaTech_BuyNow::main" dependsOnConfig="buynow/general/enabled"/>
+    	<add id="ManiyaTech_BuyNow::main" title="Buy Now" translate="Buy Now" module="ManiyaTech_BuyNow" parent="ManiyaTech_Core::core" sortOrder="30" resource="ManiyaTech_BuyNow::main" dependsOnConfig="buynow/general/enabled"/>
 
         <add id="ManiyaTech_BuyNow::configuration_menu" title="Configurations" module="ManiyaTech_BuyNow" parent="ManiyaTech_BuyNow::main" sortOrder="10" action="admin/system_config/edit/section/buynow" resource="ManiyaTech_BuyNow::configuration_menu" target="_blank"/>
     </menu>
